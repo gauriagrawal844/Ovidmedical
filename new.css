@@ -1,0 +1,956 @@
+/* ==========================================================================
+   OVID MEDICAL - PROFESSIONAL CSS ARCHITECTURE
+   ========================================================================== */
+
+/* ==========================================================================
+   1. IMPORTS & RESET
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure left numbers and right arrows placement regardless of DOM order */
+.hero-controls .hero-progress { grid-column: 1; justify-self: start; }
+.hero-controls .hero-prev { grid-column: 2; justify-self: end; }
+.hero-controls .hero-next { grid-column: 3; justify-self: end; }
+
+/* ==========================================================================
+   2. CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ========================================================================== */
+:root {
+  /* Colors */
+  --color-primary: #1E72BE;
+  --color-primary-hover: #4FC5F2;
+  --color-secondary: #4fc7ff;
+  --color-text-primary: #000000;
+  --color-text-secondary: #ffffff;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #E1F3FD;
+  --color-background-tertiary: #E7F0F4;
+  --color-border: #ddd;
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  
+  /* Typography */
+  --font-primary: 'Barlow', sans-serif;
+  --font-secondary: 'Sora', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  
+  /* Font Sizes */
+  --font-size-xs: 16px;
+  --font-size-sm: 18px;
+  --font-size-base: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 40px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 60px;
+  --font-size-6xl: 96px;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 40px;
+  --spacing-4xl: 60px;
+  --spacing-5xl: 80px;
+  --spacing-6xl: 120px;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.8s ease-in-out;
+  
+  /* Layout */
+  --container-max-width: 1600px;
+  --container-padding: 20px;
+}
+
+/* ==========================================================================
+   3. BASE STYLES
+   ========================================================================== */
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  overflow-x: hidden; /* prevent horizontal scroll due to scaling wrapper */
+  width: 100%;
+}
+/* Smooth scrolling for in-page anchors */
+html { scroll-behavior: smooth; width: 100%; }
+/* ==========================================================================
+   4. UTILITY CLASSES
+   ========================================================================== */
+
+/* Scale the entire page to match 67% zoom at a 100% browser zoom on desktop */
+.page-scale {
+  --scale: 0.67; /* matches the 67% zoom look */
+  /* Use zoom so layout height also scales and no extra bottom whitespace appears */
+  zoom: var(--scale);
+}
+
+/* Fallback for browsers that don't support CSS zoom */
+@supports not (zoom: 1) {
+  .page-scale {
+    position: relative;
+    transform: scale(var(--scale));
+    transform-origin: top left;
+    width: calc(100% / var(--scale));
+    display: block;
+  }
+}
+
+/* Disable scaling on tablets/phones for usability */
+@media (max-width: 1024px) {
+  .page-scale {
+    --scale: 1;
+    zoom: 1;
+  }
+  @supports not (zoom: 1) {
+    .page-scale {
+      transform: none;
+      width: 100%;
+    }
+  }
+}
+
+/* Container Utilities */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.container-wide {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+
+/* Typography Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); }
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Flexbox Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+
+/* Spacing Utilities */
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+.gap-xl { gap: var(--spacing-xl); }
+.gap-2xl { gap: var(--spacing-2xl); }
+.gap-3xl { gap: var(--spacing-3xl); }
+.gap-4xl { gap: var(--spacing-4xl); }
+.gap-5xl { gap: var(--spacing-5xl); }
+
+/* ==========================================================================
+   5. COMPONENT STYLES
+   ========================================================================== */
+
+/* ----- NAVIGATION ----- */
+.navbar {
+  width: 100%;
+  padding: var(--spacing-lg) 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background-primary);
+}
+
+/* Symmetric navbar padding that scales down on narrower desktops */
+@media (max-width: 1600px) {
+  .navbar { padding: var(--spacing-lg) 120px; }
+}
+@media (max-width: 1400px) {
+  .navbar { padding: var(--spacing-lg) 80px; }
+}
+@media (max-width: 1200px) {
+  .navbar { padding: var(--spacing-lg) 60px; }
+}
+
+.sub-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max-width);
+  height: 70px;
+}
+
+.logo img {
+  height: 70px;
+  max-width: 107.1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: 16px;
+  letter-spacing: 0px;
+  color: var(--color-text-primary);
+  padding: 10px 14px;
+  transition: none;
+}
+
+.nav-links li a:hover {
+  color: #3578fa;
+}
+
+/* Active nav link (desktop highlight) */
+@media (min-width: 769px) {
+  .nav-links li a.active {
+    color: #3578fa; /* match hover color */
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+  }
+  /* When hovering any link, temporarily remove active styling from non-hovered items */
+  .nav-links:hover a.active:not(:hover) {
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+  .nav-links li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-thickness: 3px;
+  }
+}
+
+/* Mobile nav controls - default hidden (desktop) */
+.hamburger { display: none; }
+.mobile-menu { display: none; }
+.mobile-overlay { display: none; }
+
+/* ----- BUTTONS ----- */
+/* Base button styles */
+.btn,
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-xl);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+  height: 52px; /* enforce consistent height across variants */
+  pointer-events: auto; /* ensure anchors receive hover/click */
+}
+
+/* Primary button (default navbar button) */
+.btn {
+  background-color: var(--color-primary);
+  color: var(--color-text-secondary);
+  border: none;
+  max-height: 52px;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Primary button variant */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-text-secondary);
+  margin-right: 0; /* prevent extra right push on desktop */
+  gap: var(--spacing-sm);
+  max-height: 52px; /* keep for safety, height already set */
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Secondary button variant */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  gap: var(--spacing-sm);
+  max-height: 52px; /* keep for safety, height already set */
+}
+
+.btn-secondary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+/* Button animations */
+.rotate-arrow {
+  transition: transform var(--transition-normal);
+}
+
+.btn-primary:hover .rotate-arrow {
+  transform: rotate(45deg);
+}
+
+.btn-text {
+  transition: transform var(--transition-normal);
+}
+
+.btn-primary:hover .btn-text {
+  transform: translateX(5px);
+}
+
+/* ----- HERO SECTION ----- */
+
+.hero {
+  /* height: calc(100vh - var(--spacing-3xl)); */
+  height:890px;
+  padding-bottom: var(--spacing-3xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-overlay);
+  z-index: 2;
+}
+
+.overlay {
+  position: relative;
+  gap: var(--spacing-3xl);
+  z-index: 10;
+  text-align: center;
+  color: var(--color-text-secondary);
+  max-width: 900px;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-6xl);
+  /* Base spacing to keep controls off overlay content across all sizes */
+  padding-bottom: calc(var(--control-size, 44px) + var(--hero-bottom-gap, 28px) + 8px);
+}
+
+.overlay h1 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 120%;
+  margin-bottom: var(--spacing-lg);
+  justify-content: center;
+}
+
+.hero-text {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-text p {
+  font-family: var(--font-primary);
+  max-width: 839px;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  margin: 0 auto;
+}
+
+.hero-btn .btn-primary {
+  margin-top: 2rem;
+  background-color: transparent;
+  border: 1px solid var(--color-text-secondary);
+}
+
+.hero-btn .btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border: 1px solid var(--color-primary-hover);
+}
+
+/* Ensure explicit gap between CTA group and hero controls */
+.overlay .hero-btn {
+  margin-bottom: var(--spacing-lg);
+  position: relative; /* ensure stacking context */
+  z-index: 12;        /* place CTA above hero-controls (z=11) */
+}
+
+/* Hero controls */
+.hero-progress {
+  position: absolute;
+  left: calc(var(--spacing-lg) - 23rem);
+  bottom: calc(14px - 8rem);
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-progress-text {
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  font-size: 23px;
+  opacity: 0.9;
+}
+
+.hero-controls {
+  position: absolute;
+  left: var(--hero-side-gap, 28px);   /* desktop default */
+  right: var(--hero-side-gap, 28px);  /* desktop default */
+  bottom: var(--hero-bottom-gap, 28px);
+  z-index: 11;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr auto auto; /* [progress] [prev] [next] */
+  align-items: center;
+  column-gap: 8px; /* space between arrows */
+  /* Unified sizing variables for arrows and ring */
+  --control-size: 44px;    /* default desktop size */
+  --arrow-font: 26px;      /* default desktop arrow size */
+  --hero-side-gap: 28px;   /* default desktop side margin */
+  --hero-bottom-gap: 28px; /* default desktop bottom margin */
+  /* Do not block hover/clicks above with transparent grid area */
+  pointer-events: none;
+}
+
+.hero-prev {
+  background: transparent;
+  border: none;
+  color: var(--color-secondary);
+  font-size: var(--arrow-font);
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--control-size);
+  height: var(--control-size);
+  border-radius: 50%;
+  pointer-events: auto; /* re-enable on interactive child */
+}
+
+.hero-next {
+  --ringColor: var(--color-secondary);
+  --progress: 0%;
+  width: var(--control-size);
+  height: var(--control-size);
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid transparent;
+  color: var(--color-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  pointer-events: auto; /* re-enable on interactive child */
+}
+
+.hero-next::before,
+.hero-next::after {
+  content: none;
+}
+
+.hero-next span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px; /* base size; overridden responsively below */
+  line-height: 1;
+  margin: 0;
+}
+
+.progress-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.progress-ring .ring-base {
+  stroke: rgba(120, 136, 160, 0.45);
+  stroke-width: 2;
+}
+
+.progress-ring .ring-progress {
+  stroke: var(--ringColor);
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+/* Keep the SVG ring slightly inset from the control edge */
+.hero-next .progress-ring { width: calc(var(--control-size) - 2px); height: calc(var(--control-size) - 2px); }
+.hero-next span { font-size: var(--arrow-font); }
+
+/* Make the numbers badge match the same circular footprint and center text */
+.hero-controls .hero-progress {
+  position: static;
+  left: auto; bottom: auto;
+  width: var(--control-size);
+  height: var(--control-size);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* avoid blocking CTA hover/clicks */
+}
+.hero-controls .hero-progress-text {
+  font-size: calc(var(--arrow-font) - 6px);
+  line-height: 1;
+}
+
+
+
+/* ----- HERO RESPONSIVE BREAKPOINTS (keep desktop composition, scale sizes) ----- */
+/* XS: 0-480px */
+@media (max-width: 480px) {
+  .hero { height: 82vh; }
+  /* Unify arrow/ring/number sizes on XS */
+  .hero-controls { --control-size: 34px; --arrow-font: 18px; --hero-side-gap: 16px; --hero-bottom-gap: 12px; }
+  /* Ensure space between CTA button and controls on small screens */
+  .overlay { padding-bottom: calc(var(--control-size) + var(--hero-bottom-gap) + 8px); }
+  .overlay {
+    position: absolute; top: 54%; left: 50%; transform: translate(-50%, -50%);
+    width: 92%;
+    max-width: 900px;
+    box-sizing: border-box; /* ensure padding doesn't cause overflow */
+    margin-top: 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: center;
+  }
+  .overlay h1 { font-size: 28px; line-height: 1.2; }
+  .hero-text p { font-size: 14px; line-height: 1.5; }
+  .hero-btn .btn-primary {
+    height: 36px;
+    padding: 6px 10px;
+    width: max-content;
+    min-width: 0;
+    font-size: 14px;
+    gap: 6px; /* tighter space between text and arrow */
+    line-height: 1;
+    border-width: 1px;
+  }
+  .hero-btn .rotate-arrow img { height: 14px; width: auto; }
+  .hero-progress { left: 16px; bottom: 12px; }
+  .hero-controls { left: 16px; right: 16px; bottom: 12px; gap: 4px; }
+  .hero-progress-text { font-size: 12px; }
+  .hero-prev { font-size: 22px; }
+  .hero-next { width: 34px; height: 34px; }
+  .hero-next .progress-ring { width: 30px; height: 30px; }
+  .hero-next span { font-size: 18px; }
+}
+
+/* MD: 768-1023px (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero { height: 80vh; }
+  /* Unify arrow/ring/number sizes on MD */
+  .hero-controls { --control-size: 40px; --arrow-font: 24px; --hero-side-gap: 20px; --hero-bottom-gap: 14px; }
+  /* Ensure CTA does not overlap controls at bottom */
+  .overlay { padding-bottom: calc(var(--control-size) + var(--hero-bottom-gap) + 8px); }
+  /* Center overlay like on larger screens to prevent overflow */
+  .overlay {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 92%;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin-top: 0;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    text-align: center;
+  }
+  .overlay h1 { font-size: 40px; line-height: 1.2; }
+  .hero-text p { font-size: 18px; line-height: 1.5; }
+  .hero-progress { left: 20px; bottom: 14px; }
+  .hero-controls { left: 20px; right: 20px; bottom: 14px; gap: 6px; }
+  /* Tighten hero CTA size on tablets */
+  .hero-btn .btn-primary {
+    height: 42px;
+    padding: 8px 14px;
+    font-size: 16px;
+    gap: 8px;
+    width: max-content;
+    min-width: 0;
+  }
+}
+
+/* SM+: 481-768px — override full-width buttons for hero CTA only and tighten size */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero .hero-btn .btn-primary,
+  .hero .hero-btn .btn-secondary {
+    width: max-content !important; /* override global small-screen width */
+    min-width: 0;
+  }
+  .hero .hero-btn .btn-primary {
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 15px;
+    gap: 6px;
+  }
+  /* Define control sizing for this range and ensure bottom spacing */
+  .hero-controls { --control-size: 36px; --arrow-font: 20px; --hero-side-gap: 18px; --hero-bottom-gap: 12px; }
+  .overlay { padding-bottom: calc(var(--control-size) + var(--hero-bottom-gap) + 8px); }
+}
+
+/* LG: 1024-1279px (laptops/small desktops) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero { height: 86vh; }
+  /* Unify arrow/ring/number sizes on LG */
+  .hero-controls { --control-size: 44px; --arrow-font: 26px; --hero-side-gap: 28px; --hero-bottom-gap: 16px; }
+  .overlay { padding-bottom: calc(var(--control-size) + var(--hero-bottom-gap) + 8px); }
+  .overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .overlay h1 { font-size: 44px; }
+  .hero-text p { font-size: 20px; }
+  .hero-progress { left: 28px; bottom: 28px; }
+  .hero-controls { left: calc(28px - 10px); right: calc(28px - 10px); bottom: 12px; }
+  .hero-progress-text { font-size: 16px; }
+  .hero-prev { font-size: 26px; }
+  .hero-next { width: 44px; height: 44px; }
+  .hero-next span { font-size: 26px; }
+}
+
+/* XL: 1280-1535px (desktops) — keep base sizes, minor nudge */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .overlay { position: relative; margin-top: var(--spacing-6xl); }
+  /* Unify arrow sizes and keep right arrow centered within ring */
+  .hero-controls { --control-size: 48px; --arrow-font: 28px; --hero-side-gap: 32px; --hero-bottom-gap: 18px; }
+  .overlay { padding-bottom: calc(var(--control-size) + var(--hero-bottom-gap) + 8px); }
+}
+
+/* UW: 1536px+ (ultra-wide) — keep base desktop styles */
+@media (min-width: 1536px) {
+  /* keep base desktop but ensure overlay has enough bottom padding for controls */
+  .overlay { padding-bottom: calc(var(--control-size, 48px) + var(--hero-bottom-gap, 18px) + 8px); }
+}
+
+.innovative-section {
+  padding: var(--spacing-5xl) 0;
+  background: var(--color-background-primary);
+  position: relative;
+}
+
+.innovative-section .container {
+  padding: 0 2px;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-5xl);
+  gap: 100px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 892px;
+}
+
+.section-label h5 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  line-height: var(--spacing-2xl);
+  letter-spacing: 0.18px;
+  color: var(--color-text-primary);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.section-title {
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-5xl);
+  line-height: 120%;
+  letter-spacing: -0.5px;
+  color: var(--color-text-primary);
+  margin: var(--spacing-xl) 0 0;
+}
+
+.description-content {
+  flex: 1;
+  max-width: 655px;
+}
+
+.description {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: 150%;
+  letter-spacing: 0.15px;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.innovative-section .feature-action {
+  justify-content: flex-start;
+}
+
+.image-container {
+  margin-top: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.feature-image {
+  width: 100%;
+  height: 860px;
+  object-fit: cover;
+  position: relative;
+  z-index: 3;
+}
+
+
+/* Innovative section: responsive container paddings + button responsiveness only */
+
+/* Common button layout within Innovative section */
+.innovative-section .feature-action {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* two equal columns */
+  gap: var(--spacing-sm);
+  justify-items: stretch;   /* buttons fill their grid cell */
+  align-items: center;
+}
+
+.innovative-section .feature-action .btn-primary,
+.innovative-section .feature-action .btn-secondary {
+  width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 6px 10px;
+    font-size: 14px;
+    white-space: nowrap;       /* keep label on one line */
+    justify-content: center;   /* center text/icons inside */
+}
+
+/* XS: 0–480px */
+@media (max-width: 480px) {
+  /* Equal side margins aligned with hero rhythm */
+  .innovative-section .container { padding: 0 16px; }
+  
+
+  /* Stack text and description; tighter gaps */
+  .innovative-section .content-wrapper {
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  /* Buttons: compact */
+  .innovative-section .feature-action { 
+    justify-content: center;   /* center the row */
+    flex-wrap: nowrap;         /* keep buttons on one line */
+    gap: var(--spacing-sm);    /* tighter gap to fit */
+   }
+  .innovative-section .feature-action .btn-primary,
+  .innovative-section .feature-action .btn-secondary {
+    width: auto;               /* never full width */
+    min-width: 0;
+    height: 36px;
+    padding: 6px 10px;
+    font-size: 14px;
+    white-space: nowrap;       /* keep label on one line */
+    flex: 0 0 auto; 
+  }
+
+  /* Image height */
+  .innovative-section .feature-image { height: 300px; }
+}
+
+/* SM: 481–767px */
+@media (min-width: 481px) and (max-width: 767px) {
+  .innovative-section .container { padding: 0 20px; }
+
+  .innovative-section .content-wrapper {
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  /* Buttons: slightly larger but compact */
+  .innovative-section .feature-action {
+     
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;         /* keep on one line */
+    gap: var(--spacing-md);  /* tighter gap to fit */
+     }
+  .innovative-section .feature-action .btn-primary,
+  .innovative-section .feature-action .btn-secondary {
+    width: auto;               /* never full width */
+    min-width: 0;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 15px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
+  .innovative-section .feature-image { height: 380px; }
+}
+
+/* MD: 768–1023px (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .innovative-section .container { padding: 0 28px; }
+
+  /* Still stack for readability; larger gaps */
+  .innovative-section .content-wrapper {
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: var(--spacing-5xl);
+  }
+
+  /* Buttons: balanced */
+  .innovative-section .feature-action .btn-primary,
+  .innovative-section .feature-action .btn-secondary {
+    height: 42px;
+    padding: 8px 14px;
+    font-size: 16px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .innovative-section .feature-image { height: 520px; }
+}
+
+/* LG: 1024–1279px (laptops/small desktops) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .innovative-section .container { padding: 0 28px; }
+
+  /* Side-by-side content; moderate gap */
+  .innovative-section .content-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .innovative-section .text-content { max-width: 720px; }
+  .innovative-section .description-content { max-width: 540px; }
+
+  /* Buttons: slightly reduced for balance */
+  .innovative-section .feature-action .btn-primary,
+  .innovative-section .feature-action .btn-secondary {
+    height: 44px;
+    padding: 10px 16px;
+    font-size: 18px;
+    gap: 8px;
+  }
+
+  .innovative-section .feature-image { height: 640px; }
+}
+
+/* XL: 1280–1535px (desktops) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .innovative-section .container { padding: 0 36px; }
+
+  .innovative-section .content-wrapper { gap: 80px; }
+
+  /* Buttons: desktop comfortable */
+  .innovative-section .feature-action .btn-primary,
+  .innovative-section .feature-action .btn-secondary {
+    height: 48px;
+    padding: 12px 18px;
+    font-size: 18px;
+  }
+
+  .innovative-section .feature-image { height: 760px; }
+}
+
+/* UW: 1536px+ (ultra-wide) */
+@media (min-width: 1536px) {
+  .innovative-section .container { padding: 0 36px; }
+
+  /* Keep existing large image height unless you prefer more */
+  /* Buttons inherit desktop sizing; no change needed */
+}
+
+/* ----- SECTION VECTOR BACKGROUND ----- */
+.section-vector-bg {
+  width: 100%;
+  height: 1500px;
+  background: url('images/Vector (2).png') no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  margin-top: -160px;
+  pointer-events: none;
+  color: #1680FB;
+}

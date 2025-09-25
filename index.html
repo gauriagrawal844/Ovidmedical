@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ovid Medical</title>
   <link rel="stylesheet" href="style.css">
-
-</head>
+  </head>
 
 <body>
+  <div class="page-scale">
   <!-- Navbar -->
   <header class="navbar">
     <div class="sub-nav">
@@ -18,21 +17,50 @@
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">News</a></li>
-          <li><a href="#">Customer References</a></li>
+          <li><a href="#home" data-nav>Home</a></li>
+          <li><a href="#products" data-nav>Products</a></li>
+          <li><a href="#news" data-nav>News</a></li>
+          <li><a href="#references" data-nav>Customer References</a></li>
         </ul>
       </nav>
       <div>
-        <button class="btn">Contact Us</button>
+        <a href="#contact" class="btn">Contact Us</a>
       </div>
+      <!-- Mobile hamburger (visible below 1024px) -->
+      <button class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
     </div>
   </header>
 
+  <!-- Mobile menu and overlay (below 1024px) -->
+  <div class="mobile-overlay" data-close-menu hidden></div>
+  <aside id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <img src="icon/Subtract.svg" alt="Logo" class="mobile-logo">
+      <button class="mobile-close" aria-label="Close menu" data-close-menu>
+        <span class="close-bar"></span>
+        <span class="close-bar"></span>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#home" data-close-menu data-nav>Home</a></li>
+        <li><a href="#products" data-close-menu data-nav>Products</a></li>
+        <li><a href="#news" data-close-menu data-nav>News</a></li>
+        <li><a href="#references" data-close-menu data-nav>Customer References</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-cta">
+      <a href="#contact" class="btn btn-mobile" data-close-menu>Contact Us</a>
+    </div>
+  </aside>
+
   <!-- Hero Section-->
 
-  <section class="hero">
+  <section class="hero" id="home">
 
     <!-- Slider Images in HTML -->
     <div class="hero-slider">
@@ -40,10 +68,10 @@
         <img src="images/Rectangle 15.png" alt="slide 1">
       </div>
       <div class="hero-slide">
-        <img src="images/Rectangle 16.png" alt="slide 2">
+        <img src="images/Rectangle 15 (2).png" alt="slide 2">
       </div>
       <div class="hero-slide">
-        <img src="images/Rectangle 26.png" alt="slide 3">
+        <img src="images/Rectangle 21.png" alt="slide 3">
       </div>
     </div>
 
@@ -51,22 +79,16 @@
       <h1>Transforming Healthcare and Beauty with Innovative Laser Solutions</h1>
       <div class="hero-text">
         <p>
-          Discover cutting-edge medical and esthetic laser solutions that deliver exceptional results. Our<br>
-          advanced technology ensures safety, precision, and effectiveness.
+          Discover cutting-edge medical and esthetic laser solutions that deliver exceptional results. Our advanced technology ensures safety, precision, and effectiveness.
         </p>
       </div>
       <div class="hero-btn">
 
         <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-              src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+              src="icon/indicator arrow.svg" alt="arrow"></span></a>
       </div>
 
-      <!-- Left fraction indicator -->
-      <div class="hero-progress" aria-label="slide progress">
-        <span class="hero-progress-text">1/3</span>
-      </div>
-
-      <!-- Right controls: left chevron and circular next -->
+      <!-- Unified controls wrapper: prev, next (ring), and numbers -->
       <div class="hero-controls" aria-label="slider controls">
         <button class="hero-prev" type="button" aria-label="Previous slide">&#8249;</button>
         <button class="hero-next" type="button" aria-label="Next slide">
@@ -76,6 +98,9 @@
           </svg>
           <span>&#8250;</span>
         </button>
+        <div class="hero-progress" aria-label="slide progress">
+          <span class="hero-progress-text">1/3</span>
+        </div>
       </div>
     </div>
 
@@ -144,7 +169,7 @@
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <img src="icon/fi_9751072.png">
+              <img src="icon/fi_9751072.png" alt="Versatility icon">
             </div>
             <h3>Superior Performance and Versatility</h3>
             <p>
@@ -168,7 +193,7 @@
           </div>
           <div class="feature-item">
             <div class="feature-icon">
-              <img src="icon/fi_9926427.png" alt="">
+              <img src="icon/fi_9926427.png" alt="Workflow efficiency icon">
             </div>
             <h3>Streamlined Workflow Efficiency</h3>
             <p>
@@ -187,7 +212,7 @@
   </section>
 
   <!-- Solutions Section -->
-  <section class="solutions-section">
+  <section class="solutions-section" id="products">
     <div class="solutions-container">
       <div class="solutions-header">
         <h2>Explore Our Cutting–Edge Laser Solutions</h2>
@@ -203,7 +228,7 @@
           <div class="solution-subtitle">FRx CO2 Intenz: Advanced Skin Resurfacing Laser.</div>
           <div class="hero-btn">
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/frx-intenzpng-1 1.png" class="card-img" alt="FRx CO2 Intenz Laser">
         </div>
@@ -214,7 +239,7 @@
           <div class="hero-btn">
 
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/Picostar (3).png" class="card-img" alt="PicoStar Laser System">
         </div>
@@ -225,7 +250,7 @@
           <div class="hero-btn">
 
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/neonailpng-1-e1700037362934.png" class="card-img" alt="Neolab Laser">
         </div>
@@ -236,7 +261,7 @@
           <div class="hero-btn">
 
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/varimedpng-e1700034874959.png" class="card-img" alt="Patient Monitor">
         </div>
@@ -247,7 +272,7 @@
           <div class="hero-btn">
 
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/ilvopng-1.png" class="card-img" alt="Smartsculpt Device">
         </div>
@@ -258,7 +283,7 @@
           <div class="hero-btn">
 
             <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
-                  src="icon/indicator arrow.svg" alt="arrow"></span></span></a>
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
           </div>
           <img src="images/PicoStar_Front (1).png" class="card-img" alt="PicoStar Laser System 2">
         </div>
@@ -267,7 +292,7 @@
   </section>
 
   <!-- Outcomes & Efficiency Section -->
-  <section class="outcomes-section">
+  <section class="outcomes-section" id="news">
     <div class="outcomes-container">
       <div class="outcomes-header">
         <h2>Discover How Our Advanced Lasers Improve Patient Outcomes and Clinic Efficiency</h2>
@@ -309,7 +334,7 @@
   <div class="section-vector-bg"></div>
 
   <!-- Training, Support, Maintenance Section -->
-  <section class="training-section">
+  <section class="training-section" id="references">
     <div class="training-container">
       <div class="training-header">
         <h2>Comprehensive Training,<br>Support, and Maintenance</h2>
@@ -393,7 +418,7 @@
   </section>
 
   <!-- Contact & Footer Section -->
-  <section class="contact-section">
+  <section class="contact-section" id="contact">
     <div class="contact-bg-pattern"></div>
     <div class="contact-container">
       <h2>Connect with</h2>
@@ -499,7 +524,7 @@
     </div>
   </footer>
 
-
+  </div>
 </body>
 <!-- <link rel="stylesheet" href="script.js"> -->
 <script>
@@ -565,6 +590,102 @@
       var ringColor = getComputedStyle(nextBtn).getPropertyValue('--ringColor');
       document.querySelector('.hero-prev').style.color = ringColor || '#4fc7ff';
     }
+  })();
+  // Mobile navbar toggle
+  (function(){
+    var hamburger = document.querySelector('.hamburger');
+    var drawer = document.getElementById('mobile-menu');
+    var overlay = document.querySelector('.mobile-overlay');
+    var closeEls = document.querySelectorAll('[data-close-menu]');
+    var OPEN_CLASS = 'open';
+
+    function openMenu(){
+      if(!drawer || !overlay || !hamburger) return;
+      drawer.classList.add(OPEN_CLASS);
+      drawer.setAttribute('aria-hidden','false');
+      hamburger.setAttribute('aria-expanded','true');
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      if(!drawer || !overlay || !hamburger) return;
+      drawer.classList.remove(OPEN_CLASS);
+      drawer.setAttribute('aria-hidden','true');
+      hamburger.setAttribute('aria-expanded','false');
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+    }
+    function toggleMenu(){
+      if(drawer && drawer.classList.contains(OPEN_CLASS)) closeMenu(); else openMenu();
+    }
+
+    if(hamburger){ hamburger.addEventListener('click', function(e){ e.stopPropagation(); toggleMenu(); }); }
+    if(closeEls){
+      for(var i=0;i<closeEls.length;i++){
+        closeEls[i].addEventListener('click', function(){ closeMenu(); });
+      }
+    }
+    // Close when clicking anywhere outside the menu
+    document.addEventListener('click', function(e){
+      if(!drawer) return;
+      if(!drawer.classList.contains(OPEN_CLASS)) return;
+      if(!drawer.contains(e.target)) { closeMenu(); }
+    });
+    window.addEventListener('keyup', function(e){ if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', function(){
+      // If back to desktop (>=769), ensure menu is closed and overlay hidden
+      if(window.innerWidth >= 769){ closeMenu(); }
+    });
+  })();
+
+  // Desktop nav active state and scroll spy
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[data-nav]'));
+    function setActiveByHash(hash){
+      if(!links.length) return;
+      for(var i=0;i<links.length;i++) links[i].classList.remove('active');
+      var found = links.find(function(l){ return l.getAttribute('href') === hash; });
+      if(found) found.classList.add('active');
+    }
+    function clearActive(){ if(!links.length) return; for(var i=0;i<links.length;i++) links[i].classList.remove('active'); }
+    // Do not set active on click; let scroll position control highlight
+    // On scroll (basic spy)
+    var sections = links.map(function(l){
+      var id = l.getAttribute('href');
+      try { return document.querySelector(id); } catch(e){ return null; }
+    }).filter(Boolean);
+    function onScroll(){
+      if(window.innerWidth < 769) return; // desktop only highlight
+      var center = window.scrollY + (window.innerHeight / 2);
+      var activeHash = null;
+      for(var i=0;i<sections.length;i++){
+        var s = sections[i];
+        var rect = s.getBoundingClientRect();
+        var top = rect.top + window.scrollY;
+        var bottom = top + s.offsetHeight;
+        if(center >= top && center < bottom){
+          activeHash = '#' + s.id;
+          break;
+        }
+      }
+      // If near the top area, force Home as active
+      var homeSection = document.getElementById('home');
+      if(!activeHash && homeSection){
+        var homeHeight = homeSection.offsetHeight || 0;
+        if(window.scrollY < homeHeight * 0.6){
+          activeHash = '#home';
+        }
+      }
+      if(activeHash) setActiveByHash(activeHash); else clearActive();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', function(){
+      // Only set active if arriving with a valid hash; otherwise none highlighted
+      var initialHash = location.hash;
+      var hasMatch = links.some(function(l){ return l.getAttribute('href') === initialHash; });
+      if(hasMatch) setActiveByHash(initialHash); else clearActive();
+      onScroll();
+    });
   })();
 </script>
 

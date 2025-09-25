@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ovid Medical</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="page-scale">
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="sub-nav">
+      <div class="logo">
+        <img src="icon/Subtract.svg" alt="Logo">
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" data-nav>Home</a></li>
+          <li><a href="#products" data-nav>Products</a></li>
+          <li><a href="#news" data-nav>News</a></li>
+          <li><a href="#references" data-nav>Customer References</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a href="#contact" class="btn">Contact Us</a>
+      </div>
+      <!-- Mobile hamburger (visible below 1024px) -->
+      <button class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu and overlay (below 1024px) -->
+  <div class="mobile-overlay" data-close-menu hidden></div>
+  <aside id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-header">
+      <img src="icon/Subtract.svg" alt="Logo" class="mobile-logo">
+      <button class="mobile-close" aria-label="Close menu" data-close-menu>
+        <span class="close-bar"></span>
+        <span class="close-bar"></span>
+      </button>
+    </div>
+    <nav class="mobile-nav">
+      <ul>
+        <li><a href="#home" data-close-menu data-nav>Home</a></li>
+        <li><a href="#products" data-close-menu data-nav>Products</a></li>
+        <li><a href="#news" data-close-menu data-nav>News</a></li>
+        <li><a href="#references" data-close-menu data-nav>Customer References</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-cta">
+      <a href="#contact" class="btn btn-mobile" data-close-menu>Contact Us</a>
+    </div>
+  </aside>
+
+  <!-- Hero Section-->
+
+  <section class="hero" id="home">
+
+    <!-- Slider Images in HTML -->
+    <div class="hero-slider">
+      <div class="hero-slide active">
+        <img src="images/Rectangle 15.png" alt="slide 1">
+      </div>
+      <div class="hero-slide">
+        <img src="images/Rectangle 15 (2).png" alt="slide 2">
+      </div>
+      <div class="hero-slide">
+        <img src="images/Rectangle 21.png" alt="slide 3">
+      </div>
+    </div>
+
+    <div class="overlay">
+      <h1>Transforming Healthcare and Beauty with Innovative Laser Solutions</h1>
+      <div class="hero-text">
+        <p>
+          Discover cutting-edge medical and esthetic laser solutions that deliver exceptional results. Our<br>
+          advanced technology ensures safety, precision, and effectiveness.
+        </p>
+      </div>
+      <div class="hero-btn">
+
+        <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+              src="icon/indicator arrow.svg" alt="arrow"></span></a>
+      </div>
+
+      <!-- Left fraction indicator -->
+      <div class="hero-progress" aria-label="slide progress">
+        <span class="hero-progress-text">1/3</span>
+      </div>
+
+      <!-- Right controls: left chevron and circular next -->
+      <div class="hero-controls" aria-label="slider controls">
+        <button class="hero-prev" type="button" aria-label="Previous slide">&#8249;</button>
+        <button class="hero-next" type="button" aria-label="Next slide">
+          <svg class="progress-ring" width="50" height="50" viewBox="0 0 36 36" aria-hidden="true">
+            <circle class="ring-base" cx="18" cy="18" r="16" fill="none" />
+            <circle class="ring-progress" cx="18" cy="18" r="16" fill="none" />
+          </svg>
+          <span>&#8250;</span>
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- Innovative Section -->
+  <section class="innovative-section">
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="text-content">
+          <div class="section-label">
+            <h5>Innovative</h5>
+          </div>
+          <h2 class="section-title">Revolutionary Laser Technology for Advanced Medical Solutions</h2>
+        </div>
+        <div class="description-content">
+          <p class="description">
+            Discover the cutting-edge laser technology used in Ovid Medical's advanced medical products.Our innovative
+            solutions provide effective and reliable treatments for healthcare and beauty professionals.With
+            state-of-the-art technology and a commitment to excellence, we deliver exceptional results for our clients.
+          </p>
+          <div class="feature-action">
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+            <a href="#" class="btn-secondary">Contact Us<span class="arrow"><img src="icon/right-arrow 1.svg"
+                  alt="arrow"></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="images/Rectangle 15 (1).png" alt="Revolutionary Laser Technology" class="feature-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG vector background between innovative and feature section -->
+  <div class="section-vector-bg"></div>
+
+  <!-- Feature Section-->
+
+  <section class="feature-section">
+    <div class="feature-container">
+      <div class="feature-header">
+        <div class="feature-header-h-content">
+          <h2>Enhance Your Practice with Confidence</h2>
+        </div>
+
+        <div class="feature-header-p-content">
+          <p>
+            Explore Ovid Medical’s Advanced Lasers for Precision Healthcare and Beauty. Customize
+            Settings for Exceptional Care and Results.
+          </p>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-column">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <img src="icon/fi_2966334.png" alt="healthcare">
+            </div>
+            <h3>Transforming Healthcare and Beauty</h3>
+            <p>
+              Experience the effectiveness and precision of Ovid Medical's lasers for yourself.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <img src="icon/fi_9751072.png" alt="Versatility icon">
+            </div>
+            <h3>Superior Performance and Versatility</h3>
+            <p>
+              Unlock endless possibilities with Ovid Medical's lasers, offering superior performance and unmatched
+              versatility.
+            </p>
+          </div>
+        </div>
+        <div class="feature-center-image">
+          <img src="images/Picostar.png" alt="Medical Laser Device">
+        </div>
+        <div class="feature-column">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <img src="icon/fi_2914633.svg" alt="healthcare">
+            </div>
+            <h3>Enhanced Patient Satisfaction</h3>
+            <p>
+              Deliver exceptional results and exceed patient expectations with Ovid Medical's advanced lasers.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <img src="icon/fi_9926427.png" alt="Workflow efficiency icon">
+            </div>
+            <h3>Streamlined Workflow Efficiency</h3>
+            <p>
+              Optimize your practice's productivity and streamline workflow efficiency with Ovid Medical's lasers.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="feature-action">
+        <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+              src="icon/indicator arrow.svg" alt="arrow"></span></a>
+        <a href="#" class="btn-secondary">Contact Us<span class="arrow"><img src="icon/right-arrow 1.svg"
+              alt="arrow"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="solutions-section" id="products">
+    <div class="solutions-container">
+      <div class="solutions-header">
+        <h2>Explore Our Cutting–Edge Laser Solutions</h2>
+        <p>
+          Discover the Future of Medical and Aesthetic Laser Technology. From Precision to Innovation, Uncover Your Next
+          Treatment Solution.
+        </p>
+      </div>
+      <div class="solutions-grid">
+        <!-- Solution Card 1 -->
+        <div class="solution-card">
+          <div class="solution-title">FRx CO2 Intenz</div>
+          <div class="solution-subtitle">FRx CO2 Intenz: Advanced Skin Resurfacing Laser.</div>
+          <div class="hero-btn">
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/frx-intenzpng-1 1.png" class="card-img" alt="FRx CO2 Intenz Laser">
+        </div>
+        <!-- Solution Card 2 -->
+        <div class="solution-card">
+          <div class="solution-title">PicoStar laser system</div>
+          <div class="solution-subtitle">Advanced Laser for Tattoo Removal & Skin Rejuvenation.</div>
+          <div class="hero-btn">
+
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/Picostar (3).png" class="card-img" alt="PicoStar Laser System">
+        </div>
+        <!-- Solution Card 3 -->
+        <div class="solution-card">
+          <div class="solution-title">Neolab laser</div>
+          <div class="solution-subtitle">MedArt Neolab: Diode Laser Treatment for Nail Fungus.</div>
+          <div class="hero-btn">
+
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/neonailpng-1-e1700037362934.png" class="card-img" alt="Neolab Laser">
+        </div>
+        <!-- Solution Card 4 -->
+        <div class="solution-card">
+          <div class="solution-title">Patient monitors</div>
+          <div class="solution-subtitle">Patient Monitor: Continuous Vital Signs Display.</div>
+          <div class="hero-btn">
+
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/varimedpng-e1700034874959.png" class="card-img" alt="Patient Monitor">
+        </div>
+        <!-- Solution Card 5 -->
+        <div class="solution-card">
+          <div class="solution-title">MedArt Smartsculpt device</div>
+          <div class="solution-subtitle">MedArt Smartsculpt: Minimally Invasive Body Contouring Laser.</div>
+          <div class="hero-btn">
+
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/ilvopng-1.png" class="card-img" alt="Smartsculpt Device">
+        </div>
+        <!-- Solution Card 6 -->
+        <div class="solution-card">
+          <div class="solution-title">PicoStar laser system</div>
+          <div class="solution-subtitle">Advanced Laser for Tattoo Removal & Skin Rejuvenation.</div>
+          <div class="hero-btn">
+
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+          </div>
+          <img src="images/PicoStar_Front (1).png" class="card-img" alt="PicoStar Laser System 2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes & Efficiency Section -->
+  <section class="outcomes-section" id="news">
+    <div class="outcomes-container">
+      <div class="outcomes-header">
+        <h2>Discover How Our Advanced Lasers Improve Patient Outcomes and Clinic Efficiency</h2>
+        <div class="outcomes-header-content">
+          <p>
+            At Ovid Medical, we offer cutting-edge laser technology that revolutionizes healthcare and beauty
+            treatments. Our state-of-the-art lasers deliver exceptional results, enhancing patient outcomes and
+            streamlining clinic operations.
+          </p>
+          <div class="outcomes-highlights">
+            <div class="highlight">
+              <!-- Placeholder for your image -->
+              <img src="icon/fi_12141867.png" alt="Enhanced Performance icon">
+              <div>
+                <div class="highlight-title">Enhanced Performance</div>
+                <div class="highlight-desc">Our advanced lasers are designed to optimize performance, ensuring precise
+                  and efficient treatments.</div>
+              </div>
+            </div>
+
+            <div class="highlight">
+              <img src="icon/workflow 1.png" alt="Streamlined Workflow icon">
+              <div>
+                <div class="highlight-title">Streamlined Workflow</div>
+                <div class="highlight-desc">With our lasers, clinics can streamline their workflow, saving time and
+                  increasing productivity.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outcomes-image-area">
+        <img src="images/Rectangle 17.png" alt="Laser treatment in action">
+      </div>
+    </div>
+  </section>
+
+  <!-- SVG vector background between outcome and training section -->
+  <div class="section-vector-bg"></div>
+
+  <!-- Training, Support, Maintenance Section -->
+  <section class="training-section" id="references">
+    <div class="training-container">
+      <div class="training-header">
+        <h2>Comprehensive Training,<br>Support, and Maintenance</h2>
+        <p>
+          At Ovid Medical ANS, we offer thorough training, support, and maintenance for your medical and esthetic lasers
+          to best serve our clients.
+        </p>
+      </div>
+      <div class="training-grid">
+        <div class="training-card">
+          <img src="images/Rectangle 19.png" alt="Training Services">
+          <div class="training-card-title">Training Services</div>
+          <div class="training-card-desc">
+            Our experienced trainers provide hands-on training sessions to help you master the use of our advanced
+            medical and esthetical lasers.
+          </div>
+        </div>
+        <div class="training-card">
+          <img src="images/Rectangle 20.png" alt="Support Services">
+          <div class="training-card-title">Support Services</div>
+          <div class="training-card-desc">
+            Our dedicated support team is available to assist you with any technical issues or questions you may have.
+          </div>
+        </div>
+        <div class="training-card">
+          <img src="images/Rectangle 21.png" alt="Maintenance Services">
+          <div class="training-card-title">Maintenance Services</div>
+          <div class="training-card-desc">
+            We offer regular maintenance services to ensure the optimal performance and longevity of your lasers.
+          </div>
+        </div>
+      </div>
+      <div class="feature-action">
+        <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+              src="icon/indicator arrow.svg" alt="arrow"></span></a>
+        <a href="#" class="btn-secondary">Contact Us<span class="arrow"><img src="icon/right-arrow 1.svg"
+              alt="arrow"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="statistics-section">
+    <!-- Background video and overlay -->
+    <video class="statistics-bg-video" src="images/4772531-uhd_3840_2160_24fps.mp4" autoplay muted loop playsinline preload="metadata"></video>
+    <div class="statistics-overlay" aria-hidden="true"></div>
+    <div class="statistics-content">
+      <div class="statistics-header-div">
+        <div class="statistics-left">
+          <h2>Effective and Reliable Products for Professionals</h2>
+        </div>
+        <div class="statistics-right">
+          <p>
+            Discover the power of Ovid Medical's advanced medical and esthetical lasers. Our cutting-edge technology
+            delivers exceptional results, providing healthcare and beauty professionals with the tools they need to
+            achieve their goals.
+          </p>
+          <div class="feature-action">
+            <a href="#" class="btn-primary"><span class="btn-text">Learn More</span> <span class="rotate-arrow"><img
+                  src="icon/indicator arrow.svg" alt="arrow"></span></a>
+            <a href="#" class="btn-secondary">Contact Us<span class="arrow"><img src="icon/right-arrow 1.svg"
+                  alt="arrow"></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="statistics-numbers">
+        <div class="stat-box">
+          <div class="stat-percent">30%</div>
+          <div class="stat-label">Increased Treatment Efficiency</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-percent">30%</div>
+          <div class="stat-label">Enhanced Patient Satisfaction</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-percent">30%</div>
+          <div class="stat-label">Improved Treatment Outcomes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Footer Section -->
+  <section class="contact-section" id="contact">
+    <div class="contact-bg-pattern"></div>
+    <div class="contact-container">
+      <h2>Connect with</h2>
+      <p class="inquriee">us for any questions or inquiries.</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <img src="icon/fi_3178158.png" alt="Email Icon" class="contact-icon email-icon">
+          <h3>Email</h3>
+          <p>Fill out the form below to get in touch with us.</p>
+          <div class="ctc"> <a href="mailto:hello@ovidmedical.com">hello@ovidmedical.com</a> </div>
+        </div>
+        <div class="contact-card">
+          <img src="icon/fi_455705.png" alt="Phone Icon" class="contact-icon phone-icon">
+          <h3>Phone</h3>
+          <p>For any inquiries, please give us a call.</p>
+          <div class="ctc"> <a href="tel:+0108273-1493">+1 (555) 123-4567</a> </div>
+        </div>
+        <div class="contact-card">
+          <img src="icon/fi_5616461.png" alt="Office Icon" class="contact-icon office-icon">
+          <h3>Office</h3>
+          <p>Visit our office for a consultation.</p>
+          <div class="ctc">
+            <address>
+              123 Main Street, Sydney, NSW 2000,<br> Australia
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-newsletter">
+        <div class="footer-logo"><img src="icon/Subtract.svg" alt="OvidMedical Logo"></div>
+        <div class="newsletter-text">
+          <p>Join our newsletter to stay up to date on the latest features and releases.</p>
+        </div>
+        <div class="newsletter-input">
+          <!-- <form> -->
+            <input type="email" placeholder="Enter your email" class="form-input">
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+          <!-- </form> -->
+        </div>
+      </div>
+
+      <div class="quick-links">
+        <div class="footer-heading">
+          <h4>Quick Link</h4>
+        </div>
+        <div class="quick-links-container">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Customer Preference</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <div class="footer-heading">
+          <h4>Follow us</h4>
+        </div>
+        <div class="footer-links-container">
+          <ul>
+            <li><a href="#">
+                <img src="icon/ic_baseline-facebook.png" alt="Facebook">
+                Facebook
+              </a></li>
+            <li><a href="#">
+                <img src="icon/mdi_instagram.png" alt="Instagram">
+                Instagram
+              </a></li>
+            <li><a href="#">
+                <img src="icon/mdi_twitter.png" alt="Twitter">
+                Twitter
+              </a></li>
+            <li><a href="#">
+                <img src="icon/mdi_linkedin.png" alt="LinkedIn">
+                LinkedIn
+              </a></li>
+            <li><a href="#">
+                <img src="icon/mdi_youtube.png" alt="YouTube">
+                YouTube
+              </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <div class="copy-right">
+          &copy; 2024 Relume. All rights reserved.
+        </div>
+        <div class="footer-policy">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+</body>
+<!-- <link rel="stylesheet" href="script.js"> -->
+<script>
+  (function () {
+    var slides = document.querySelectorAll('.hero-slide');
+    var textEl = document.querySelector('.hero-progress-text');
+    var prevBtn = document.querySelector('.hero-prev');
+    var nextBtn = document.querySelector('.hero-next');
+    var total = slides.length;
+    var index = 0;
+    var intervalMs = 3000;
+    var timerId;
+
+    function showSlide(i) {
+      for (var s = 0; s < slides.length; s++) {
+        slides[s].classList.remove('active');
+      }
+      slides[i].classList.add('active');
+
+      var human = i + 1;
+      if (textEl) textEl.textContent = human + '/' + total;
+      if (nextBtn) {
+        // Update SVG ring progress (border only)
+        var circle = nextBtn.querySelector('.ring-progress');
+        if (circle) {
+          var radius = circle.r.baseVal.value; // 16
+          var circumference = 2 * Math.PI * radius;
+          circle.style.strokeDasharray = String(circumference);
+          var fraction = (i + 1) / total; // 1/3, 2/3, 1
+          circle.style.strokeDashoffset = String(circumference * (1 - fraction));
+        }
+      }
+    }
+
+    function next() {
+      index = (index + 1) % total;
+      showSlide(index);
+    }
+
+    function prev() {
+      index = (index - 1 + total) % total;
+      showSlide(index);
+    }
+
+    function startAuto() {
+      stopAuto();
+      timerId = setInterval(next, intervalMs);
+    }
+
+    function stopAuto() {
+      if (timerId) clearInterval(timerId);
+    }
+
+    // kick off
+    showSlide(index);
+    startAuto();
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
+
+    // ensure left chevron color matches ring color
+    if (nextBtn && document.querySelector('.hero-prev')) {
+      var ringColor = getComputedStyle(nextBtn).getPropertyValue('--ringColor');
+      document.querySelector('.hero-prev').style.color = ringColor || '#4fc7ff';
+    }
+  })();
+  // Mobile navbar toggle
+  (function(){
+    var hamburger = document.querySelector('.hamburger');
+    var drawer = document.getElementById('mobile-menu');
+    var overlay = document.querySelector('.mobile-overlay');
+    var closeEls = document.querySelectorAll('[data-close-menu]');
+    var OPEN_CLASS = 'open';
+
+    function openMenu(){
+      if(!drawer || !overlay || !hamburger) return;
+      drawer.classList.add(OPEN_CLASS);
+      drawer.setAttribute('aria-hidden','false');
+      hamburger.setAttribute('aria-expanded','true');
+      overlay.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      if(!drawer || !overlay || !hamburger) return;
+      drawer.classList.remove(OPEN_CLASS);
+      drawer.setAttribute('aria-hidden','true');
+      hamburger.setAttribute('aria-expanded','false');
+      overlay.hidden = true;
+      document.body.style.overflow = '';
+    }
+    function toggleMenu(){
+      if(drawer && drawer.classList.contains(OPEN_CLASS)) closeMenu(); else openMenu();
+    }
+
+    if(hamburger){ hamburger.addEventListener('click', function(e){ e.stopPropagation(); toggleMenu(); }); }
+    if(closeEls){
+      for(var i=0;i<closeEls.length;i++){
+        closeEls[i].addEventListener('click', function(){ closeMenu(); });
+      }
+    }
+    // Close when clicking anywhere outside the menu
+    document.addEventListener('click', function(e){
+      if(!drawer) return;
+      if(!drawer.classList.contains(OPEN_CLASS)) return;
+      if(!drawer.contains(e.target)) { closeMenu(); }
+    });
+    window.addEventListener('keyup', function(e){ if(e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', function(){
+      // If back to desktop (>=769), ensure menu is closed and overlay hidden
+      if(window.innerWidth >= 769){ closeMenu(); }
+    });
+  })();
+
+  // Desktop nav active state and scroll spy
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[data-nav]'));
+    function setActiveByHash(hash){
+      if(!links.length) return;
+      for(var i=0;i<links.length;i++) links[i].classList.remove('active');
+      var found = links.find(function(l){ return l.getAttribute('href') === hash; });
+      if(found) found.classList.add('active');
+    }
+    function clearActive(){ if(!links.length) return; for(var i=0;i<links.length;i++) links[i].classList.remove('active'); }
+    // Do not set active on click; let scroll position control highlight
+    // On scroll (basic spy)
+    var sections = links.map(function(l){
+      var id = l.getAttribute('href');
+      try { return document.querySelector(id); } catch(e){ return null; }
+    }).filter(Boolean);
+    function onScroll(){
+      if(window.innerWidth < 769) return; // desktop only highlight
+      var center = window.scrollY + (window.innerHeight / 2);
+      var activeHash = null;
+      for(var i=0;i<sections.length;i++){
+        var s = sections[i];
+        var rect = s.getBoundingClientRect();
+        var top = rect.top + window.scrollY;
+        var bottom = top + s.offsetHeight;
+        if(center >= top && center < bottom){
+          activeHash = '#' + s.id;
+          break;
+        }
+      }
+      // If near the top area, force Home as active
+      var homeSection = document.getElementById('home');
+      if(!activeHash && homeSection){
+        var homeHeight = homeSection.offsetHeight || 0;
+        if(window.scrollY < homeHeight * 0.6){
+          activeHash = '#home';
+        }
+      }
+      if(activeHash) setActiveByHash(activeHash); else clearActive();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', function(){
+      // Only set active if arriving with a valid hash; otherwise none highlighted
+      var initialHash = location.hash;
+      var hasMatch = links.some(function(l){ return l.getAttribute('href') === initialHash; });
+      if(hasMatch) setActiveByHash(initialHash); else clearActive();
+      onScroll();
+    });
+  })();
+</script>
+
+</html>
