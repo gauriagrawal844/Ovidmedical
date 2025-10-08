@@ -15,6 +15,23 @@
   box-sizing: border-box;
 }
 
+/* ----- Feature section: fine-tune 789px–1024px (final order) ----- */
+@media (min-width: 789px) and (max-width: 1024px) {
+  .feature-section .feature-container { padding: 0 24px; }
+  .feature-section .feature-header h2 { font-size: 34px; line-height: 1.2; }
+  .feature-section .feature-header p { font-size: 16px; }
+  .feature-section .feature-grid { gap: var(--spacing-lg); }
+  .feature-section .feature-column { flex: 1 1 48%; max-width: 580px; gap: 28px; }
+  .feature-section .feature-icon { width: 60px; height: 60px; }
+  .feature-section .feature-item h3 { font-size: 22px; }
+  .feature-section .feature-item p { font-size: 16px; }
+  .feature-section .feature-center-image img { max-width: 660px; height: auto; }
+  /* Keep buttons tidy and side-by-side */
+  .feature-section .feature-action { display: flex; justify-content: center; gap: var(--spacing-md); flex-wrap: nowrap; }
+  .feature-section .feature-action .btn-primary,
+  .feature-section .feature-action .btn-secondary { height: 40px; padding: 8px 12px; font-size: 15px; width: auto; min-width: 0; white-space: nowrap; }
+}
+
 /* Ensure left numbers and right arrows placement regardless of DOM order */
 .hero-controls .hero-progress { grid-column: 1; justify-self: start; }
 .hero-controls .hero-prev { grid-column: 2; justify-self: end; }
@@ -104,36 +121,8 @@ html { scroll-behavior: smooth; width: 100%; }
    ========================================================================== */
 
 /* Scale the entire page to match 67% zoom at a 100% browser zoom on desktop */
-.page-scale {
-  --scale: 0.67; /* matches the 67% zoom look */
-  /* Use zoom so layout height also scales and no extra bottom whitespace appears */
-  zoom: var(--scale);
-}
 
-/* Fallback for browsers that don't support CSS zoom */
-@supports not (zoom: 1) {
-  .page-scale {
-    position: relative;
-    transform: scale(var(--scale));
-    transform-origin: top left;
-    width: calc(100% / var(--scale));
-    display: block;
-  }
-}
 
-/* Disable scaling on tablets/phones for usability */
-@media (max-width: 1024px) {
-  .page-scale {
-    --scale: 1;
-    zoom: 1;
-  }
-  @supports not (zoom: 1) {
-    .page-scale {
-      transform: none;
-      width: 100%;
-    }
-  }
-}
 
 /* Container Utilities */
 .container {
@@ -2448,11 +2437,16 @@ color:black;
 
   .sub-nav {
     position: relative;
-    height: 64px;
+    height: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .sub-nav .logo img{
+    width: 80px;
+    height: 50px;
   }
 
   /* Hide desktop nav links and CTA below 1024 */
@@ -2475,12 +2469,12 @@ color:black;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
     cursor: pointer;
   }
 
   .hamburger-bar {
-    width: 18px;
+    width: 30px;
     height: 2px;
     background: #1E72BE;
     display: block;
@@ -2819,5 +2813,104 @@ color:black;
     height: 32px;
     padding: 5px 8px;
     font-size: 12px;
+  }
+}
+
+/* ----- Hero overlay safety: prevent exceeding at <=1024px (final order) ----- */
+@media (max-width: 1024px) {
+  .overlay {
+    position: relative !important;
+    top: auto; left: auto; transform: none;
+    width: min(92%, 900px);
+    margin: var(--spacing-6xl) auto 0;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    /* Ensure space above hero-controls */
+    padding-bottom: calc(var(--control-size, 40px) + var(--hero-bottom-gap, 14px) + 8px);
+    box-sizing: border-box;
+  }
+  /* Normalize controls spacing in this band */
+  .hero-controls { left: 20px; right: 20px; bottom: 14px; }
+  .hero { height: 82vh; }
+  .overlay h1 { font-size: 36px; }
+}
+
+/* ----- Innovative section heading responsiveness (final order) ----- */
+@media (max-width: 1024px) {
+  .innovative-section .text-content { max-width: 100%; }
+  .innovative-section .section-title {
+    font-size: 36px;         /* tablet and down */
+    line-height: 1.2;
+    letter-spacing: -0.25px;
+    overflow-wrap: anywhere; /* prevent overflow of long words */
+    word-break: normal;
+    hyphens: auto;
+    margin-top: var(--spacing-lg);
+  }
+  .innovative-section .section-label h5 { font-size: var(--font-size-base); line-height: 1.2; }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .innovative-section .section-title { font-size: 30px; }
+}
+
+@media (max-width: 480px) {
+  .innovative-section .section-title { font-size: 26px; }
+}
+
+/* ----- Innovative section description responsiveness (final order) ----- */
+@media (max-width: 1024px) {
+  .innovative-section .description-content { max-width: 100%; }
+  .innovative-section .description {
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.15px;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .innovative-section .description {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .innovative-section .description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+/* Innovative description: laptops/small desktops (1024–1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .innovative-section .description-content { max-width: 620px; }
+  .innovative-section .description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-3xl);
+  }
+}
+
+/* Innovative description: desktops (1280–1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .innovative-section .description-content { max-width: 655px; }
+  .innovative-section .description {
+    font-size: 19px; /* slightly larger for desktop */
+    line-height: 1.6;
+    margin-bottom: var(--spacing-3xl);
+  }
+}
+
+/* Innovative description: ultra-wide (1536px+) */
+@media (min-width: 1536px) {
+  .innovative-section .description-content { max-width: 720px; }
+  .innovative-section .description {
+    font-size: 20px;
+    line-height: 1.65;
+    margin-bottom: var(--spacing-3xl);
   }
 }
